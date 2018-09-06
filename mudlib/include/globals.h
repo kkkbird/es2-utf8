@@ -4,6 +4,14 @@
 // This file is #included in all objects automatically by the driver.
 // (See config file of driver)
 
+#define SAVE_EXTENSION __SAVE_EXTENSION__
+//#pragma optimize 
+
+#define crypt oldcrypt 
+#define static nosave
+#define private protected
+
+
 // Directories
 
 #define COMMAND_DIR		"/cmds/"

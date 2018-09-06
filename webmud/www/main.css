@@ -67,7 +67,7 @@ button#out2x {
 }
 
 p.out {
-  white-space: pre;
+  white-space: pre-wrap;
   word-wrap: break-word;
   margin: 2px;
   padding: 0px;
