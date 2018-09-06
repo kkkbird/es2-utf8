@@ -2,7 +2,7 @@
 
 'use strict';
 
-var info = require('../package.json');
+var info = require('./package.json');
 
 var path = require('path'),
     socketio = require('socket.io'),
@@ -21,7 +21,7 @@ var conf = {
     port: 8080,
   },
   www: path.resolve(__dirname + '/www'),
-  mudlib: path.resolve(__dirname + '/../mudlib'),
+  mudlib: path.resolve(__dirname + '/mudlib'),
   logTraffic: true,
   fileMan: false,
 };

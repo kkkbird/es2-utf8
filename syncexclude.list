@@ -1,0 +1,11 @@
+/.git
+/data
+/log
+/tmp
+syncexclude.list
+upload.sh
+.gitignore
+readme.md
+**/__pycache__/
+**/*.pyc
+**/migrations/

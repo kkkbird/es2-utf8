@@ -1,0 +1,29 @@
+version: '2'
+services:
+  mudlib-es2:
+    build: ./fluffos
+    ports:
+    - "48555:5555"
+    restart: unless-stopped
+    volumes:
+    - "./mudlib-es2:/fluffos/mudlib"
+    - "./data/es2:/fluffos/mudlib/data"
+    - "./log/es2:/fluffos/mudlib/log"
+  
+  webmud:
+    build: ./webmud
+    ports:
+    - "48080:8080"
+    command:
+    - "./main.js"
+    - "8080"
+    - "5555"
+    - "-w"
+    - "./www"
+    - "-h"
+    - "mudlib-es2"
+    - "-m" 
+    - "/mudlib"
+    restart: unless-stopped
+    volumes:
+    - "./mudlib-es2:/mudlib"

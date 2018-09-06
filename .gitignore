@@ -4,11 +4,7 @@
 .idea
 *.iml
 *.log
-node_modules
-mudlib/data/user
-mudlib/data/login
-mudlib/log/log
-mudlib/log/USAGE
-mudlib/log/author_stats
-mudlib/log/domain_stats
-mudlib/log/tsatic/CRASHES
+data/
+log/
+tmp/
+upload.sh
