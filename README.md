@@ -1,7 +1,11 @@
-WebMUD with docker support
+# WebMUD with docker support
 
-docker-compose up -d --build
----
+## How to
+
+`docker-compose up -d --build`
+
+-----
+
 # ES2 WebMUD
 
 ES2 mudlib is ancestry of almost every Chinese MUD, powered by MudOS／FluffOS.
