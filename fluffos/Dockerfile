@@ -1,6 +1,6 @@
-FROM kaiserli/ubuntu-cn:18.04-2
+FROM kaiserli/ubuntu-cn:16.04-1
 
-RUN apt-get update && apt-get install -y libevent-2.1\
+RUN apt-get update && apt-get install -y libevent-2.0\
     && rm -rf /var/lib/apt/lists/*    
 
 RUN mkdir -p /fluffos/bin /fluffos/mudlib /fluffos/mudlib/log
