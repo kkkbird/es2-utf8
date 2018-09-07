@@ -1,11 +1,11 @@
-FROM kaiserli/ubuntu-cn:16.04-1
+FROM kaiserli/ubuntu-cn:18.04-2
 
-RUN apt-get update && apt-get install -y libevent-2.0\
+RUN apt-get update && apt-get install -y libevent-2.1\
     && rm -rf /var/lib/apt/lists/*    
 
-RUN mkdir -p /fluffos/bin /fluffos/mudlib /fluffos/mudlib/log
+RUN mkdir -p /fluffos/bin /fluffos/mudlib
 
-COPY driver config.es2 /fluffos/bin/
+COPY driver /fluffos/bin/
 
 RUN chmod +x /fluffos/bin/driver
 
@@ -15,4 +15,4 @@ WORKDIR /fluffos/
 
 VOLUME [ "/fluffos/mudlib/log", "/fluffos/mudlib/data" ]
 
-CMD [ "/fluffos/bin/driver", "/fluffos/bin/config.es2" ]
+ENTRYPOINT [ "/fluffos/bin/driver" ]
