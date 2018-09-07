@@ -22,6 +22,7 @@ var conf = {
   },
   www: path.resolve(__dirname + '/www'),
   mudlib: path.resolve(__dirname + '/mudlib'),
+  prefixuri: '',
   logTraffic: true,
   fileMan: false,
 };
@@ -38,7 +39,8 @@ if(args._.length < 2) {
     'Options: \n' +
     '    [-h <telnet-host>]\n' +
     '    [-w <path/to/www>]\n' +
-    '    [-m <path/to/mudlib]\n\n' );
+    '    [-m <path/to/mudlib>]\n' + 
+	  '    [-u <path/to/uri>]\n\n');
   process.exit(0);
 }
 
@@ -48,6 +50,7 @@ conf.telnet.port = parseInt(args._[1], 10);
 if(args.h) conf.telnet.host = args.h;
 if(args.w) conf.www = path.resolve(args.w);
 if(args.m) conf.mudlib = args.m;
+if(args.u) conf.prefixuri = args.u;
 
 var app = express().use(express.static(conf.www));
 var httpserver = http.createServer(app);
@@ -55,8 +58,10 @@ httpserver.listen(conf.web.port, conf.web.host, function(){
   console.log('listening on ' + conf.web.host + ':' + conf.web.port);
 });
 
+console.log(conf);
+
 // create socket io
-var io = socketio.listen(httpserver);
+var io = socketio.listen(httpserver,  { path: conf.prefixuri + '/socket.io' });
 
 // create webtelnet proxy and bind to io
 var webtelnetd = webtelnet(io, conf.telnet.port, conf.telnet.host);
