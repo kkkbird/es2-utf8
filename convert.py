@@ -5,6 +5,7 @@ import sys
 # change crlf to lf
 # sed -i "s/\r//g" `grep -i "\r" -rl .`
 
+
 def convert_file(fname, verbose=False):
     with codecs.open(fname, "r", "gbk", errors="ignore") as fin:
         lines = fin.readlines()
@@ -33,7 +34,7 @@ def convert_dir(dname, exts=[
 
 
 def convert_files(files):
-    for name in files:        
+    for name in files:
         try:
             convert_file(name)
         except Exception as e:
@@ -141,7 +142,7 @@ if __name__ == "__main__":
     #     "./xyj45/world/doc/help/special",
     #     "./xyj45/world/doc/wiz/chinese",
     #     "./xyj45/world/obj/temp",
-    # ]    
+    # ]
     # convert_files(files)
     # convert_dir(".//doc")
     main()
