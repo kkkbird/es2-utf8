@@ -373,5 +373,9 @@ $(document).ready(function(){
     tabSize: 2,
   });
 
-  client.bind(io(), false);
+  var pathname = window.location.pathname;
+  pathname = pathname.substr(0, pathname.length - 'editor/'.length);
+  client.bind(io("",{
+    path: pathname + 'socket.io'
+  }), false);
 });
