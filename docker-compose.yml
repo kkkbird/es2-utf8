@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   mudlib-es2:
     build: ./fluffos
@@ -26,4 +26,36 @@ services:
     - "/mudlib"
     restart: unless-stopped
     volumes:
+    - "./www:/webmud/www"
     - "./mudlib-es2:/mudlib"
+
+  mudlib-xyj45:
+    build:
+      context: ./fluffos
+      dockerfile: Dockerfile.xyj45
+    ports:
+    - "48556:5555"
+    restart: unless-stopped
+    volumes:
+    - "./xyj45/world:/fluffos/mudlib"
+    - "./data/xyj45:/fluffos/mudlib/data"
+    - "./log/xyj45:/fluffos/mudlib/log"
+
+  webmud-xyj45:
+    build: ./webmud
+    ports:
+    - "48082:8080"
+    command:
+    - "./main.js"
+    - "8080"
+    - "5555"
+    - "-w"
+    - "./www"
+    - "-h"
+    - "mudlib-xyj45"
+    - "-m" 
+    - "/mudlib"
+    restart: unless-stopped
+    volumes:
+    - "./xyj45/www:/webmud/www"
+    - "./xyj45/world:/mudlib"

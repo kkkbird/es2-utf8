@@ -88,6 +88,7 @@ function jsonFromLPC(text, file, mudlib, types) {
           var item = items[j].trim();
           if(!item) continue;
           var words = item.replace(/""/g,'').split(':');
+          if(words.length < 2) continue;
           var k = words[0].replace(/[" ]*/g, '');
           var v = words[1].replace(/[" ]*/g, '');
           k = replaceDIR(k, file, mudlib);

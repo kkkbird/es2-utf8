@@ -2,6 +2,8 @@ import os
 import codecs
 import sys
 
+# change crlf to lf
+# sed -i "s/\r//g" `grep -i "\r" -rl .`
 
 def convert_file(fname, verbose=False):
     with codecs.open(fname, "r", "gbk", errors="ignore") as fin:
