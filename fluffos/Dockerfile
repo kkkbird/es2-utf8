@@ -13,6 +13,4 @@ EXPOSE 5555
 
 WORKDIR /fluffos/
 
-VOLUME [ "/fluffos/mudlib/log", "/fluffos/mudlib/data" ]
-
 ENTRYPOINT [ "/fluffos/bin/driver" ]

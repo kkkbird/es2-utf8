@@ -7,6 +7,3 @@ upload.sh
 .gitignore
 readme.md
 convert.py
-**/__pycache__/
-**/*.pyc
-**/migrations/

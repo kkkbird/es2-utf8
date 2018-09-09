@@ -84,32 +84,32 @@ compiler stack size : 600
 
 # Set the maximum stack size of the stack machine. This stack will also
 # contain all local variables and arguments.
-evaluator stack size : 6000
+evaluator stack size : 18000
 
 # Max inherit chain size
-inherit chain size : 30
+inherit chain size : 90
 
 # Maximum amount of "eval cost" per thread - execution is halted when 
 # it is exceeded.
-maximum evaluation cost : 30000000
+maximum evaluation cost : 300000000
 
 # Max number of local variables in a function.
-maximum local variables : 50
+maximum local variables : 200
 
 # Set the maximum call depth for functions.
-maximum call depth : 150
+maximum call depth : 500
 
 # This is the maximum array size allowed for one single array.
-maximum array size : 15000
+maximum array size : 50000
 
 # This is the maximum allowed size of a variable of type 'buffer'.
-maximum buffer size : 400000
+maximum buffer size : 2000000
 
 # Max size for a mapping
-maximum mapping size : 150000
+maximum mapping size : 500000
 
 # maximum length of a string variable
-maximum string length : 200000
+maximum string length : 800000
 
 # Maximum number of bits in a bit field. They are stored in printable
 # strings, 6 bits per byte.
@@ -321,4 +321,4 @@ apply cache bits : 22
 call_out(0) next level : 1000
 
 # maximum number of users in the game (unused currently)
-maximum users : 40
+maximum users : 200

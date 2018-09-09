@@ -1,6 +1,7 @@
 version: '3'
 services:
-  mudlib:
+  mudlib:  
+    restart: unless-stopped
     build: ./fluffos
     image: kaiserli/mudlib:v1
     ports:
@@ -10,10 +11,10 @@ services:
     volumes:
     - "./mudlib:/fluffos/mudlib"
     - "./data:/fluffos/mudlib/data"
-    - "./log:/fluffos/mudlib/log"
-    
+    - "./log:/fluffos/mudlib/log"    
   
   webmud:
+    restart: unless-stopped
     build: ./webmud
     image: kaiserli/webmud:v1
     ports:
