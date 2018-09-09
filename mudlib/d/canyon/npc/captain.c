@@ -7,7 +7,7 @@ inherit NPC;
 string tell_story(object who);
 
 string *make_msg = ({
-    HIG"二十多年前，先帝将大将军们调来这□驻守隘口。\n\n"NOR,
+    HIG"二十多年前，先帝将大将军们调来这里驻守隘口。\n\n"NOR,
     HIG"京城的也就因隘口的巩固而获得安全。\n\n"NOR,
     HIG"事隔多年，先帝也死了，换上的是位我们不甚认识的小皇帝。\n\n"NOR,
     HIG"看来他只忙著找剑，也没什么大作为，大家也不太服他。\n\n"NOR,
@@ -40,7 +40,7 @@ void create()
 	set("chat_chance", 8);
 	set("chat_msg", ({
 		"大队长说道：有没有问题要问我啊？\n",
-		"大队长说道：我对这□很熟的喔。\n",
+		"大队长说道：我对这里很熟的喔。\n",
 	}) );
 	
 	set("force", 700);
