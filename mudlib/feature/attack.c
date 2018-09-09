@@ -207,7 +207,7 @@ void reset_action()
 	if( ob = query_temp("weapon") )
 		type = ob->query("skill_type");
 	else 
-		type = "unarmed";
+		type = "unarmed";	
 
 	if( stringp(skill = query_skill_mapped(type)) ) {
 		// If using a mapped skill, call the skill daemon.
@@ -216,7 +216,7 @@ void reset_action()
 		// Else, let weapon handle it.
 		if( ob ) set("actions", ob->query("actions",1) );
 		else set("actions", query("default_actions",1) );
-	}
+	}	
 }
 
 // This is called in heart_beat() to perform attack action.

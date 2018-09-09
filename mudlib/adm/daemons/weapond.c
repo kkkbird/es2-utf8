@@ -50,7 +50,7 @@ mapping weapon_actions = ([
                 "parry":                -10,
                 ]),
         "bash": ([
-                "action":               "$N挥舞$w，往$n的$l用力一□",
+                "action":               "$N挥舞$w，往$n的$l用力一砸",
                 "damage_type":  "挫伤",
                 "post_action":  (: call_other, __FILE__, "bash_weapon" :),
                 ]),
@@ -78,12 +78,12 @@ varargs mapping query_action()
 
         verbs = previous_object()->query("verbs");
 
-        if( !pointerp(verbs) ) return weapon_actions["hit"];
+        if( !pointerp(verbs) ) return weapon_actions["slash"];
         else {
                 verb = verbs[random(sizeof(verbs))];
                 if( !undefinedp(weapon_actions[verb]) ) return 
 weapon_actions[verb];
-                else return weapon_actions["hit"];
+                else return weapon_actions["slash"];
         }       
 }
 

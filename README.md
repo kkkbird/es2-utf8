@@ -1,5 +1,9 @@
 # WebMUD with docker support
 
+## Install
+
+install docker and docker-compose
+
 ## How to
 
 `docker-compose up -d --build`

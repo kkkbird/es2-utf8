@@ -19,25 +19,37 @@ int can_afford(int amount)
         coin = present("coin_money");
 
         total = 0;
-        if( gold ) total += gold->value();
-        if( silver ) total += silver->value();
-        if( coin ) total += coin->value();
+        if (gold)
+                total += gold->value();
+        if (silver)
+                total += silver->value();
+        if (coin)
+                total += coin->value();
 
-        if( total < amount ) return 0;
+        if (total < amount)
+                return 0;
 
-        if (coin ) {
-                if ((int)coin->value() < (amount%100))
+        if (coin)
+        {
+                if ((int)coin->value() < (amount % 100))
                         return 2;
-         } else if (amount%100) return 2;
-        if (silver) {
-                if (coin) {
-                     if ((int)silver->value()+(int)coin->value()
-                                < (amount % 10000))
-                        return 2;
+        }
+        else if (amount % 100)
+                return 2;        
+        
+
+        if (silver)
+        {
+                if (coin)
+                {
+                        if ((int)silver->value() + (int)coin->value() < (amount % 10000))
+                                return 2;
                 }
-        } else if (amount%10000) return 2;
-                
-/*        if( coin ) amount -= (int)coin->value();
+        }
+        else if ((int)(amount / 100)  % 1000)
+                return 2;
+
+        /*        if( coin ) amount -= (int)coin->value();
         if( amount <= 0 ) return 1;
         else if( amount % 100 ) return 2;
 
@@ -58,38 +70,53 @@ int pay_money(int amount)
         coin = present("coin_money");
 
         total = 0;
-        if( gold ) total += gold->value();
-        if( silver ) total += silver->value();
-        if( coin ) total += coin->value();
+        if (gold)
+                total += gold->value();
+        if (silver)
+                total += silver->value();
+        if (coin)
+                total += coin->value();
 
-        if( total < amount ) return 0;
+        if (total < amount)
+                return 0;
 
-        if( gold && amount >= 10000 ) {
-                if( gold->value() >= amount ) {
-                        gold->add_amount(-amount/10000);
+        if (gold && amount >= 10000)
+        {
+                if (gold->value() >= amount)
+                {
+                        gold->add_amount(-amount / 10000);
                         amount %= 10000;
-                } else {
+                }
+                else
+                {
                         amount -= (int)gold->value();
                         gold->set_amount(0);
                 }
         }
-        if( silver && amount >= 100 ) {
-                if( silver->value() >= amount ) {
-                        silver->add_amount(-amount/100);
+        if (silver && amount >= 100)
+        {
+                if (silver->value() >= amount)
+                {
+                        silver->add_amount(-amount / 100);
                         amount %= 100;
-                } else {
+                }
+                else
+                {
                         amount -= (int)silver->value();
                         silver->set_amount(0);
                 }
         }
-        if( coin && amount > 0 ) {
-                if( coin->value() >= amount ) {
+        if (coin && amount > 0)
+        {
+                if (coin->value() >= amount)
+                {
                         coin->add_amount(-amount);
                         amount = 0;
-                } else
+                }
+                else
                         error("F_FINANCE: Not enough money!\n");
         }
-        
-        if( amount > 0 ) error("F_FINANCE: Not enough money!\n");
-}
 
+        if (amount > 0)
+                error("F_FINANCE: Not enough money!\n");
+}

@@ -17,19 +17,19 @@ mapping *action = ({
 		"damage_type":	"割伤"
 	]),
 	([	"action":		"$N舞动$w，一招「柳叶随人笑」迅捷无伦地劈向$n的$l",
-		"damage_type":	"□伤"
+		"damage_type":	"砍伤"
 	]),
 	([	"action":		"$N手中$w一晃，一招「倩影惹人怜」往$n的$l斜斜砍出一刀",
 		"damage":		40,
-		"damage_type":	"□伤"
+		"damage_type":	"砍伤"
 	]),
 	([	"action":		"$N提刀过肩，蓄劲发力，一招「芦雪碎人影」直劈$n$l",
 		"damage":		40,
-		"damage_type":	"□伤"
+		"damage_type":	"砍伤"
 	]),
 	([	"action":		"$N移步侧身，使一招「彩蝶灼人衣」刀光霍霍斩向$n的$l",
 		"damage":		40,
-		"damage_type":	"□伤"
+		"damage_type":	"砍伤"
 	]),
 });
 

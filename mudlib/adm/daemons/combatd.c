@@ -51,7 +51,7 @@ string damage_msg(int damage, string type)
         if( damage == 0 ) return "结果没有造成任何伤害。\n";
 
         switch( type ) {
-        case "□伤":
+        case "砍伤":
         case "割伤":
                 if( damage < 10 ) return "结果只是轻轻地划破$p的皮肉。\n";
                 else if( damage < 20 ) return 
@@ -213,10 +213,10 @@ parry_skill;
         //
         // (1) Find out what action the offenser will take.
         //
-        action = me->query("actions");
+        action = me->query("actions");        
         if( !mapp(action) ) {
                 me->reset_action();
-                action = me->query("action");
+                action = me->query("actions");
                 if( !mapp(action) ) {
                         CHANNEL_D->do_channel( this_object(), "sys",
                                 sprintf("%s(%s): bad action = %O",
